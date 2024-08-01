@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawsAdopt</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="login.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="form">
+    <ul class="tab-group">
+      <li class="tab active"><a href="#signup" style="border-radius: 15px!important;margin-right:8x;">Sign Up</a></li>
+      <li class="tab"><a href="#login" style="border-radius: 15px!important;margin-left:8px;">Log In</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="signup">
+        <h1>Register</h1>
+        <form action="/signup" id="signupForm" method="post">
+          <div class="top-row">
+            <div class="field-wrap">
+              <input id="signup-name" type="text" name="firstName" required placeholder="First Name" />
+            </div>
+            <div class="field-wrap">
+              <input id="signup-lname" type="text" name="lastName" required placeholder="Last Name" />
+            </div>
+          </div>
+          <div class="field-wrap">
+            <input id="signup-email" type="email" name="email" required placeholder="Email Address"/>
+          </div>
+          <div class="field-wrap">
+            <input id="signup-pass" type="password" name="password" required placeholder="Password" />
+          </div>
+          <button type="submit" class="button button-block">Sign Up</button>
+        </form>
+      </div>
+      <div id="login">
+        <h1>Welcome Back!</h1>
+        <form action="/login" id="loginForm" method="post">
+          <div class="field-wrap">
+            <input type="email" name="email" required placeholder="Email" />
+          </div>
+          <div class="field-wrap">
+            <input type="password" name="password" required placeholder="Password" />
+          </div>
+          <button class="button button-block">Login</button>
+        </form>
+      </div>
+    </div>
+  </div> 
+  
+  <script>
+    $(document).ready(function() {
+      $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+        var $this = $(this),
+            label = $this.prev('label');
+        if (e.type === 'keyup') {
+          if ($this.val() === '') {
+            label.removeClass('active highlight');
+          } else {
+            label.addClass('active highlight');
+          }
+        } else if (e.type === 'blur') {
+          if ($this.val() === '') {
+            label.removeClass('active highlight');
+          } else {
+            label.removeClass('highlight');
+          }
+        } else if (e.type === 'focus') {
+          if ($this.val() === '') {
+            label.removeClass('highlight');
+          } else {
+            label.addClass('highlight');
+          }
+        }
+      });
+
+      $('#signupForm').submit(function(event) {
+      var name = $('#signup-name').val().trim();
+      var lname = $('#signup-lname').val().trim();
+      var email = $('#signup-email').val().trim();
+      var password = $('#signup-pass').val();
+
+      // Name validation (alphabets and spaces only)
+      var nameRegex = /^[A-Za-z\s]+$/;
+      if (!nameRegex.test(name)) {
+        alert('Please enter a valid name.');
+        event.preventDefault();
+        return;
+      }
+
+      if (!nameRegex.test(lname)) {
+        alert('Please enter a valid name.');
+        event.preventDefault();
+        return;
+      }
+
+      // Email validation (basic format)
+      var emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        event.preventDefault();
+        return;
+      }
+
+      // Password validation (minimum 8 characters)
+      if (password.length < 6) {
+        alert('Password must be at least 8 characters long.');
+        event.preventDefault();
+        return;
+      }
+    });
+      
+      $('.tab a').on('click', function (e) {
+        e.preventDefault();
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+        var target = $(this).attr('href');
+        $('.tab-content > div').not(target).hide();
+        $(target).fadeIn(600);
+      });
+    
+    });
+  </script>
+</body>
+</html>
+

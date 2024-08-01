@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Care Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+   :root {
+      --clr-primary: #7575d9;
+      --clr-secondary: #e94e77;
+      --bg-primary: #232228;
+      --bg-secondary: #393740;
+      --text-primary: #fff;
+      --text-secondary: #ccc;
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Ensures 3 cards per row */
+      gap: 20px;
+    }
+    .card {
+      background-color: var(--bg-secondary);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card__content {
+      padding: 20px;
+    }
+    .card__name {
+      font-size: 24px;
+      color: var(--clr-primary);
+      margin-bottom: 10px;
+    }
+    .card__description {
+      font-size: 16px;
+      color: var(--text-primary);
+      display: none;
+      margin-top: 10px;
+    }
+    .card__toggle {
+      background: var(--clr-primary);
+      color: var(--text-primary);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .card__toggle:hover {
+      background: var(--clr-secondary);
+    }
+    .section-title {
+      text-align: center;
+      color: var(--text-primary);
+      font-size: 32px;
+      margin: 20px 0;
+    }
+    .column-header {
+      text-align: center;
+      color: var(--clr-primary);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #7575d9;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #6d6dc6;
+    }
+    #but1{
+      margin-left: 50px;
+    }
+    .card__description .price {
+      color: rgb(63, 179, 63);
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+  <a href="services.html" class="button" id="but1"><i class="fa-solid fa-arrow-left"></i></a>
+  <section>
+    <div class="container">
+      <h3>
+        <i class="fa-solid fa-paw" style="color: white;"></i>
+        <span style="color: #fff;">Paws</span>
+        <span style="color: #7575d9;">Adopt</span>
+      </h3>   
+      <h1 class="section-title">Pet Care Products</h1>
+      <div class="grid">
+        <!-- Shampoo -->
+        <div>
+          <h2 class="column-header">Shampoo</h2>
+          <div class="card">
+            <img src="services/shampoo.jpeg" alt="Shampoo">
+            <div class="card__content">
+              <h2 class="card__name">Moisturizing Shampoo</h2>
+              <p class="card__description">Gentle on skin, Leaves coat soft and shiny </br><span class="price">Price: Rs 200</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="services/shampoo1.jpeg" alt="Shampoo">
+            <div class="card__content">
+              <h2 class="card__name">Antifungal Shampoo</h2>
+              <p class="card__description">For treating fungal infections, Soothes itchy skin</br><span class="price">Price: Rs 450</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="services/shampoo2.jpeg" alt="Shampoo">
+            <div class="card__content">
+              <h2 class="card__name">Deodorizing Shampoo</h2>
+              <p class="card__description">Eliminates odor, Leaves a fresh scent</br><span class="price">Price: Rs 240</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Dewormers -->
+        <div>
+          <h2 class="column-header">Dewormers</h2>
+          <div class="card">
+            <img src="services/dewormer.jpeg" alt="Dewormer">
+            <div class="card__content">
+              <h2 class="card__name">Chewable Dewormer</h2>
+              <p class="card__description">Tasty formulation, Suitable for picky eaters</br><span class="price">Price: Rs 149</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="services/dewormer1.jpeg" alt="Dewormer">
+            <div class="card__content">
+              <h2 class="card__name">Tablet Dewormer</h2>
+              <p class="card__description">Easy to administer, Highly effective</br><span class="price">Price: Rs 399</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="services/dewormer2.jpeg" alt="Dewormer">
+            <div class="card__content">
+              <h2 class="card__name">Liquid Dewormer</h2>
+              <p class="card__description">Convenient to use, Fast-acting</br><span class="price">Price: Rs 564</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Belts -->
+        <div>
+          <h2 class="column-header">Belts</h2>
+          <div class="card">
+            <img src="services/belt.jpeg" alt="Belt">
+            <div class="card__content">
+              <h2 class="card__name">Adjustable Nylon Belt</h2>
+              <p class="card__description">Durable, Easy to clean</br><span class="price">Price: Rs 238</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="services/belt1.jpeg" alt="Belt">
+            <div class="card__content">
+              <h2 class="card__name">Reflective Safety Belt</h2>
+              <p class="card__description">High visibility, Ensures safety during night walks</br><span class="price">Price: Rs 479</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="services/belt2.jpeg" alt="Belt">
+            <div class="card__content">
+              <h2 class="card__name">Leather Collar and Leash Set</h2>
+              <p class="card__description">Premium quality, Stylish design</br><span class="price">Price: Rs 326</span></p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleDescription(button) {
+      const card = button.parentNode;
+      const description = card.querySelector('.card__description');
+      description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

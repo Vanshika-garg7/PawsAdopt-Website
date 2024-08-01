@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Breeds</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --clr-primary: #7575d9;
+      --clr-secondary: #e94e77;
+      --bg-primary: #232228;
+      --bg-secondary: #393740;
+      --text-primary: #fff;
+      --text-secondary: #ccc;
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Ensures 3 cards per row */
+      gap: 20px;
+    }
+    .card {
+      background-color: var(--bg-secondary);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card__content {
+      padding: 20px;
+    }
+    .card__name {
+      font-size: 24px;
+      color: var(--clr-primary);
+      margin-bottom: 10px;
+    }
+    .card__description {
+      font-size: 16px;
+      color: var(--text-primary);
+      display: none;
+      margin-top: 10px;
+    }
+    .card__toggle {
+      background: var(--clr-primary);
+      color: var(--text-primary);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .card__toggle:hover {
+      background: var(--clr-secondary);
+    }
+    .section-title {
+      text-align: center;
+      color: var(--text-primary);
+      font-size: 32px;
+      margin: 20px 0;
+    }
+    .column-header {
+      text-align: center;
+      color: var(--clr-primary);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .button {
+  padding: 10px 20px;
+  background-color: #7575d9;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #6d6dc6;
+}
+#but1{
+  margin-left: 50px;
+}
+  </style>
+</head>
+<body>
+  <a href="catbreeds.html" class="button" id="but1"><i class="fa-solid fa-arrow-left"></i></a>
+  <section>
+    <div class="container">
+      <h3>
+        <i class="fa-solid fa-paw" style="color: white;"></i>
+        <span style="color: #fff;">Paws</span>
+        <span style="color: #7575d9;">Adopt</span>
+      </h3>   
+      <h1 class="section-title">Explore Cat Breeds</h1>
+      <div class="grid">
+        <!-- First Column - PERSIAN -->
+        <div>
+          <h2 class="column-header">PERSIAN</h2>
+          <div class="card">
+            <img src="cats/cat1.jpeg" alt="Persian Cat">
+            <div class="card__content">
+              <h2 class="card__name">CLOE</h2>
+              <p class="card__description">Playful, Affectionate</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="cats/cat2.jpeg" alt="Persian Cat">
+            <div class="card__content">
+              <h2 class="card__name">SOPHIE</h2>
+              <p class="card__description">Loyal and affectionate</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="cats/cat3.jpeg" alt="Persian Cat">
+            <div class="card__content">
+              <h2 class="card__name">TONY</h2>
+              <p class="card__description">Energetic, Agile</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Second Column - RAGDOLL -->
+        <div>
+          <h2 class="column-header">RAGDOLL</h2>
+          <div class="card">
+            <img src="cats/cat4.jpeg" alt="Ragdoll Cat">
+            <div class="card__content">
+              <h2 class="card__name">COOPER</h2>
+              <p class="card__description">Gentle, Devoted</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="cats/cat5.jpeg" alt="Ragdoll Cat">
+            <div class="card__content">
+              <h2 class="card__name">PONY</h2>
+              <p class="card__description">Adventurous, Independent</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="cats/cat6.jpeg" alt="Ragdoll Cat">
+            <div class="card__content">
+              <h2 class="card__name">COCOA</h2>
+              <p class="card__description">Friendly, Sociable</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Third Column - SIAMESE -->
+        <div>
+          <h2 class="column-header">SIAMESE</h2>
+          <div class="card">
+            <img src="cats/cat7.jpeg" alt="Siamese Cat">
+            <div class="card__content">
+              <h2 class="card__name">ZooZoo</h2>
+              <p class="card__description">Graceful, Alert</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="cats/cat8.jpeg" alt="Siamese Cat">
+            <div class="card__content">
+              <h2 class="card__name">DASY</h2>
+              <p class="card__description">Bold, Loyal</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          <div class="card">
+            <img src="cats/cat9.jpeg" alt="Siamese Cat">
+            <div class="card__content">
+              <h2 class="card__name">LUNA</h2>
+              <p class="card__description">Vocal, Intelligent</p>
+            </div>
+            <button class="card__toggle" onclick="toggleDescription(this)">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleDescription(button) {
+      const card = button.parentNode;
+      const description = card.querySelector('.card__description');
+      description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
